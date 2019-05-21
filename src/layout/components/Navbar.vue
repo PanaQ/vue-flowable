@@ -4,24 +4,21 @@
 
     <breadcrumb class="breadcrumb-container" />
 
-    <div class="right-menu">
+    <div class="right-menu" style="border:1px solid red">
+       <router-link to="/">
+            <i class="el-icon-s-home"></i>
+        </router-link>
+
+         <i class="el-icon-setting"></i>
+
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
+          <!-- <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar"> -->
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <router-link to="/">
-            <el-dropdown-item>
-              Home
-            </el-dropdown-item>
-          </router-link>
-          <a target="_blank" href="https://github.com/PanJiaChen/vue-admin-template/">
-            <el-dropdown-item>Github</el-dropdown-item>
-          </a>
-          <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">
-            <el-dropdown-item>Docs</el-dropdown-item>
-          </a>
+
+
           <el-dropdown-item divided>
             <span style="display:block;" @click="logout">Log Out</span>
           </el-dropdown-item>
@@ -105,10 +102,18 @@ export default {
         cursor: pointer;
         transition: background .3s;
 
-        &:hover {
-          background: rgba(0, 0, 0, .025)
-        }
+         &:hover {
+      background: rgba(0, 0, 0, .025)
+    }
       }
+    }
+
+    .el-icon-s-home,.el-icon-setting{
+      font-size: 20px;
+      margin-right: 20px;
+         &:hover {
+         color: rgb(64, 157, 255);
+        }
     }
 
     .avatar-container {
@@ -125,13 +130,13 @@ export default {
           border-radius: 10px;
         }
 
-        .el-icon-caret-bottom {
-          cursor: pointer;
-          position: absolute;
-          right: -20px;
-          top: 25px;
-          font-size: 12px;
-        }
+        // .el-icon-caret-bottom {
+        //   cursor: pointer;
+        //   position: absolute;
+        //   right: -20px;
+        //   top: 25px;
+        //   font-size: 12px;
+        // }
       }
     }
   }
