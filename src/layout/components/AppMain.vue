@@ -1,9 +1,9 @@
 <template>
-  <section class="app-main">
+  <main class="app-main el-main">
     <transition name="fade-transform" mode="out-in">
       <router-view :key="key" />
     </transition>
-  </section>
+  </main>
 </template>
 
 <script>
@@ -18,15 +18,8 @@ export default {
 </script>
 
 <style scoped>
-.app-main {
-  /*50 = navbar  */
-  min-height: calc(100vh - 50px);
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-.fixed-header+.app-main {
-  padding-top: 50px;
+.app-main{
+  height: 100%;
 }
 </style>
 

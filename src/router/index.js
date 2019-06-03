@@ -5,7 +5,6 @@ Vue.use(Router)
 
 /* Layout */
 import Layout from '@/layout'
-import AppLayout from '@/app-layout'
 
 export const constantRoutes = [
   {
@@ -13,7 +12,11 @@ export const constantRoutes = [
     component: () => import('@/views/login/index'),
     hidden: true
   },
-
+  {
+    path: '/reg',
+    component: () => import('@/views/login/register'),
+    hidden: true
+  },
   {
     path: '/404',
     component: () => import('@/views/404'),
@@ -47,29 +50,35 @@ export const constantRoutes = [
   },
   {
     path: '/app',
-    component: AppLayout,
-    redirect: '/app/manage',
+    component: Layout,
+    redirect: '/app/application',
     name: 'app',
-    meta: { title: '应用管理', icon: 'example' },
+    meta: { title: '应用管理', icon: 'application' },
     children: [
       {
-        path: 'manage',
-        name: 'manage',
+        path: 'application',
+        name: 'application',
         component: () => import('@/views/app/index'),
-        meta: { title: 'manage', icon: 'table' }
+        meta: { title: 'application', icon: 'table' }
       },
-      // {
-      //   path: 'group',
-      //   name: 'group',
-      //   component: () => import('@/views/group/index'),
-      //   meta: { title: 'group', icon: 'table' }
-      // },
-      // {
-      //   path: 'power',
-      //   name: 'power',
-      //   component: () => import('@/views/power/index'),
-      //   meta: { title: 'power', icon: 'table' }
-      // }
+      {
+        path: 'authority',
+        name: 'authority',
+        component: () => import('@/views/authority/index'),
+        meta: { title: 'authority', icon: 'table' }
+      },
+      {
+        path: 'companyInfo',
+        name: 'companyInfo',
+        component: () => import('@/views/companyInfo/index'),
+        meta: { title: 'companyInfo', icon: 'table' }
+      },
+      {
+        path: 'organization',
+        name: 'organization',
+        component: () => import('@/views/organization/index'),
+        meta: { title: 'organization', icon: 'table' }
+      }
     ]
   },
 
@@ -94,49 +103,7 @@ export const constantRoutes = [
   //     }
   //   ]
   // },
-  // {
-  //   path: '/nested',
-  //   component: Layout,
-  //   redirect: '/nested/menu1',
-  //   name: 'Nested',
-  //   meta: {
-  //     title: '组织架构',
-  //     icon: 'nested'
-  //   },
-  //   children: [
-  //     {
-  //       path: 'menu1',
-  //       component: () => import('@/views/nested/menu1/index'), // Parent router-view
-  //       name: 'Menu1',
-  //       meta: { title: '部门A' },
-  //       children: [
-  //         {
-  //           path: 'menu1-1',
-  //           component: () => import('@/views/nested/menu1/menu1-1'),
-  //           name: 'Menu1-1',
-  //           meta: { title: '部门a-1' }
-  //         },
-  //         {
-  //           path: 'menu1-2',
-  //           component: () => import('@/views/nested/menu1/menu1-2'),
-  //           name: 'Menu1-2',
-  //           meta: { title: '部门a-2' }
-  //         },
-  //         {
-  //           path: 'menu1-3',
-  //           component: () => import('@/views/nested/menu1/menu1-3'),
-  //           name: 'Menu1-3',
-  //           meta: { title: '部门a-3' }
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       path: 'menu2',
-  //       component: () => import('@/views/nested/menu2/index'),
-  //       meta: { title: '部门b' }
-  //     }
-  //   ]
-  // },
+
   // {
   //   path: '/form',
   //   component: Layout,
@@ -150,7 +117,7 @@ export const constantRoutes = [
   //   ]
   // },
   // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  // { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () => new Router({

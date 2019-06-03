@@ -13,10 +13,11 @@
           <span>添加应用</span>
           <i class="el-icon-plus"></i>
         </el-menu-item>
-        <template v-for="(item) in appList">
+        <template v-for="(item,index) in appList">
           <el-menu-item
             :index="item.appid"
             @click="handleClick(item.appid)"
+            :key="index"
           >
             <i class="el-icon-menu"></i>
             <span slot="title">{{item.appname}}</span>

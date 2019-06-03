@@ -5,11 +5,8 @@
     <breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu" style="border:1px solid red">
-       <router-link to="/">
-            <i class="el-icon-s-home"></i>
-        </router-link>
+      <i class="el-icon-s-home"></i>
 
-         <i class="el-icon-setting"></i>
 
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -17,8 +14,17 @@
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
-
-
+          <router-link to="/">
+            <el-dropdown-item>
+              Home
+            </el-dropdown-item>
+          </router-link>
+          <a target="_blank" href="https://github.com/PanJiaChen/vue-admin-template/">
+            <el-dropdown-item>Github</el-dropdown-item>
+          </a>
+          <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">
+            <el-dropdown-item>Docs</el-dropdown-item>
+          </a>
           <el-dropdown-item divided>
             <span style="display:block;" @click="logout">Log Out</span>
           </el-dropdown-item>
@@ -102,18 +108,14 @@ export default {
         cursor: pointer;
         transition: background .3s;
 
-         &:hover {
-      background: rgba(0, 0, 0, .025)
-    }
+        &:hover {
+          background: rgba(0, 0, 0, .025)
+        }
       }
     }
 
-    .el-icon-s-home,.el-icon-setting{
+    .el-icon-s-home{
       font-size: 20px;
-      margin-right: 20px;
-         &:hover {
-         color: rgb(64, 157, 255);
-        }
     }
 
     .avatar-container {

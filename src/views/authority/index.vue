@@ -10,6 +10,7 @@
           <el-button
             size="mini"
             type="primary"
+            @click="dialogAddRole = true"
           >新建角色</el-button>
           <el-button
             size="mini"
@@ -89,11 +90,31 @@
           v-for="item in options"
           :key="item.value"
           :label="item.label"
-          :value="item.value"
+          :value="item"
         >
         </el-option>
       </el-select>
-</el-dialog>
+
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogAddNumber = false">取 消</el-button>
+        <el-button type="primary" @click="addnumbersure()">确 定</el-button>
+      </span>
+    </el-dialog>
+
+
+     <!-- 新建角色 -->
+    <el-dialog
+      title="新建角色"
+      :visible.sync="dialogAddRole"
+    >
+     <el-input v-model="rolenput" placeholder="请输入内容"></el-input>
+
+
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogAddRole = false">取 消</el-button>
+        <el-button type="primary" @click="dialogAddRole = false">确 定</el-button>
+      </span>
+    </el-dialog>
   </el-container>
 </template>
 
@@ -103,21 +124,18 @@ export default {
   data() {
     return {
       dialogAddNumber: false,
+      dialogAddRole: false,
+      rolenput:'',
+
       options: [{
           value: '选项1',
-          label: '黄金糕'
+          label: '张三'
         }, {
           value: '选项2',
-          label: '双皮奶'
+          label: '李四'
         }, {
           value: '选项3',
-          label: '蚵仔煎'
-        }, {
-          value: '选项4',
-          label: '龙须面'
-        }, {
-          value: '选项5',
-          label: '北京烤鸭'
+          label: '王五'
         }],
         value1: [],
         value2: [],
@@ -163,37 +181,58 @@ export default {
       ],
       userData: [{
         id: '20160502',
-        name: '王小虎',
-        part: '111'
+        name: '王虎',
+        part: '财务'
       }, {
         id: '20160504',
-        name: '王小虎',
-        part: '222'
+        name: 'xx虎',
+        part: '销售'
       }, {
         id: '20105-01',
-        name: '王小虎',
-        part: '3333'
+        name: 'ee虎',
+        part: '管理'
       }, {
         id: '2016-05-03',
-        name: '王小虎',
-        part: '44444'
+        name: 'll虎',
+        part: '实验室'
       }],
 
       options: [{
+        id:'212',
         value: '选项1',
-        label: '黄金糕'
+        label: '李明1',
+        name: '李明1',
+        part: '财务'
+
+
       }, {
+        id:'222',
         value: '选项2',
-        label: '双皮奶'
+        label: '李明2',
+        name: '李明2',
+        part: '财务'
+
+
       }, {
+        id:'202',
         value: '选项3',
-        label: '蚵仔煎'
+        label: '李明3',
+        name: '李明23',
+        part: '财务'
+
+
       }, {
+        id:'201232',
         value: '选项4',
-        label: '龙须面'
+        label: '李明4',
+        name: '李明4',
+        part: '开发'
       }, {
+        id:'20123432',
         value: '选项5',
-        label: '北京烤鸭'
+        label: '李明5',
+        name:'李明5',
+        part: '开发'
       }],
     };
   },
@@ -217,7 +256,12 @@ export default {
     },
     addNumber() {
           this.dialogAddNumber=true;
-    }
+    },
+    addnumbersure(){
+       this.userData=this.userData.concat(this.value1);
+          this.dialogAddNumber=false;
+
+    },
 
   }
 }
