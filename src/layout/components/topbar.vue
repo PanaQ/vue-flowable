@@ -7,7 +7,7 @@
     >
 
     <span class="top-title">
-      xxxxxxxx
+      资产云
     </span>
 
     <el-menu

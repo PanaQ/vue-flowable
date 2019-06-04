@@ -67,9 +67,14 @@
         >
         </el-table-column>
         <el-table-column
-          prop="part"
+
           label="操作"
         >
+        <template>
+          <div>
+              <el-button type="danger" icon="el-icon-delete" circle></el-button>
+          </div>
+        </template>
 
         </el-table-column>
       </el-table>
